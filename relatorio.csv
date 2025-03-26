@@ -1,0 +1,113 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1"><title>
+	.:: VTWeb Admin ::.
+</title><link href="/aspnet_client/system_web/4_0_30319/crystalreportviewers13/css/default.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript">
+		
+		function Loaded()
+		{
+			parent.showFrame();
+			//document.parent.showFrame();
+		}
+    
+		function ShowError(msg)
+		{
+			parent.showError(msg);
+		}
+		
+    </script>
+    
+</head>
+<body onload="Loaded()">
+    <form name="form1" method="post" action="./ShowReport.aspx" language="javascript" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__CRYSTALSTATECrystalReportViewer1" id="__CRYSTALSTATECrystalReportViewer1" value="{&#39;common&#39;:{&#39;width&#39;:&#39;&#39;,&#39;Height&#39;:&#39;&#39;,&#39;enableDrillDown&#39;:true,&#39;drillDownTarget&#39;:&#39;_self&#39;,&#39;printMode&#39;:&#39;Pdf&#39;,&#39;displayToolbar&#39;:true,&#39;pageToTreeRatio&#39;:6,&#39;pdfOCP&#39;:true,&#39;promptingType&#39;:&#39;html&#39;,&#39;rptAlbumOrder&#39;:[&#39;0&#39;],&#39;toolPanelType&#39;:&#39;GroupTree&#39;,&#39;toolPanelWidth&#39;:200,&#39;toolPanelWidthUnit&#39;:&#39;px&#39;,&#39;paramOpts&#39;:{&#39;numberFormat&#39;:{&#39;groupSeperator&#39;:&#39;.&#39;,&#39;decimalSeperator&#39;:&#39;,&#39;},&#39;dateFormat&#39;:&#39;dd/MM/yyyy&#39;,&#39;timeFormat&#39;:&#39;H:mm:ss&#39;,&#39;dateTimeFormat&#39;:&#39;dd/MM/yyyy H:mm:ss&#39;,&#39;booleanFormat&#39;:{&#39;true&#39;:&#39;Verdadeiro&#39;,&#39;false&#39;:&#39;Falso&#39;},&#39;maxNumParameterDefaultValues&#39;:&#39;200&#39;,&#39;canOpenAdvancedDialog&#39;:true},&#39;zoom&#39;:100,&#39;zoomFromUI&#39;:false,&#39;lastRefresh&#39;:&#39;25/02/2025 19:57:58&#39;,&#39;viewerState&#39;:&#39;DrrSYXAq16xK9H+Rc0WO2IN/UOGY7J5hItj9fnvP6UlJhZNgT7ROUNcXRfc4uKE6MiL0cJlZF4qIvhOMTOi3wFZeULJxYKQ1A5qYEa2OseMY3wr2SYnQEuILKBF/PmtH1GmUC5hpjwT2AsfiBh+gC2TIqOgZsIraqB32Z4LIGB53VwaAg0jbtTXlBwzML6MTOHlciQOFhTipvM6zHLkkrwqfP36pL1DQezoN33WRR5qFSxecyFJnpJbmmPY4pxd4jFkG7ztM2qlJ77vJm1DCE6he6bGPK3Qr9vqCwX55zWAD7PK/tqdksvcZ2YaHghYSR60mjj2LnMlBIT6fcm2BssVr+LzSxIde45JNquTzNgnASzG0Dwf86++2NcF2NzB6QuegGVLE2Fa90ZWv7dufZWCjvSUBecw9pz3/h4Pgv1VREmfSMqGnOgxR0zd2K+g4Uvu/8BQh5oq7RghMqmhknAQMG09XJtLHq9aXNsdcVxc4nSSh7m2czA9hW17UXDrtxIXNxoK/2pd779IlvdnWL1t9l5f424031xf7xl55wZEI/6yAfCIKGr32T1iIDrytUT9YX84Um4bODt9AwUv0/emEF8Uz2fv6EDb67M49ofOgOJlGPi8qUTBfo/vuwfM9/sLKgWfUVo8ZmKSsCjrvcwPbSVlZ4yIy34JFSMoP1bszb/VmLMmzyp4J/OzOU0uF8qGq3Kxi9v/Qrnl8GlmbbmvL5dJH6uAIt2iIuIZjaAs843UcscshIX6cY3VX+k/Js5DQOopjnZdi3QENlj50S8EiDBvIuqBUugIzoYGTSvcBux9cPLBABZLSwZyAuxQzMGqRUGhoVYvaC49XugLE9OWq1mXWQwkm2DrXsgbh8DjoS77E1nw/crS3RdDqI8UOcwHQoELPsSNYRWRq6eoiqCR5O42SkkrfZ4gk9GpUocs29kVH0bjGkJwqmLWbCMXrijG7FFrxs5qYBaQINo5zhF7/3UX8xMRKt+tnDB7ZDNk/NBtEze0dfgFTq1jTOrWAdIEatRN3Gz02ue62fO7xuX4sVS6WRnHUfvTwJ72ezn8sL/uu56LiIXlvi/O1tJEu4C/xiHi4bQWlvUZETGiF51dbJPNkelz9GRVsHiYdaH67G3Uolhzpbx6vVtu61ZC/YtnZHNJmYAn4p5+U7YeE/EblvUOJkkMPwcwunYdPnHMtsp37DQdfEXINnGtZ2EIgqPrL2aJB6daxFc6sXLZpmF1qLtwKApLRzFUKiwhST1Ah/NVl2sDPXT0OyUL6vu9oi3bdgtIzMmSQq0QbwBQVhPvsCma4ysofMbyCOYC86sEjVlixFWG2MP3nNz5/CiepRozl5O9NALVc50vr9OJ7Yk6RPQiAPDkKj/RC6eQiBfDlsT07F0Z4zD40gvSLuPFOpF1QR7cwYRleOQtezbJSIBpfJ5xNQgBmvsJFh1Y2OgrSdAzFBe3j63kVWw6k9qlfByr31dztqPTHxYYSoxlwz1rRT+eJAJUaU+oj5sAlixy9bWMxT/oG9TeZDVb5PnEf5dUGf5bgN2SFymYn1JWZE70e0uVNHNruMCunYmMyLkWHX647ATVqi1/kjy4LE9zCWDfdXTL09TLrXUtx2JipXA==&#39;},&#39;curViewId&#39;:&#39;0&#39;,&#39;0&#39;:{&#39;rptViewLabel&#39;:&#39;Relat&#243;rio Principal&#39;,&#39;gpTreeCurrentExpandedPaths&#39;:{},&#39;vCtxt&#39;:&#39;{\&#39;lpn\&#39;:6684,\&#39;islpnn\&#39;:true,\&#39;prc\&#39;:{\&#39;pn\&#39;:1}}&#39;,&#39;pageNum&#39;:1}}" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTIwMDIxMTQyNzcPFgIeE1ZhbGlkYXRlUmVxdWVzdE1vZGUCARYCAgEPZBYCAgEPFwBkZAntj4S2POhUT4IKa5mGM3kRg28jUDboSgjoOUveqfCJ" />
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="/WebResource.axd?d=BEWhPk726ENF4PY6d5P7vA4Ew4i79mRGlCRe_9Qtgza8UJvcHdJozrxvpzZVEfOTJeFtAWqxnnOMN5OCEIFTVejmliiyxA03kAeDMz3XI9E1&amp;t=637814552020000000" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+<!--
+if(typeof(crv_config)=='undefined'){crv_config=new Object();}crv_config.lang="pt-BR";crv_config.useAsync = true;// -->
+</script>
+
+<script src="../aspnet_client/system_web/4_0_30319/crystalreportviewers13/js/crviewer/crv.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+function WebForm_OnSubmit() {
+bobj.event.publish('saveViewState');
+return true;
+}
+// -->
+</script>
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="E5796E80" />
+    
+        <div id="CrystalReportViewer1" style="border-style:None;">
+	<link rel="stylesheet" type="text/css" href="../aspnet_client/system_web/4_0_30319/crystalreportviewers13/js/crviewer/images/style.css" />
+	<style> .drill_cursor { cursor: url('../aspnet_client/system_web/4_0_30319/crystalreportviewers13/js/crviewer/images/drill_cursor.cur'), default; }</style>
+	
+            <link rel="stylesheet" type="text/css" href="../aspnet_client/system_web/4_0_30319/crystalreportviewers13/css/exception.css">
+            <table class="crExceptionBorder" width="100%" cellspacing=1 cellpadding=0 border=0>
+                <tr><td class="crExceptionHeader">Erro</td></tr>
+                <tr>
+                	<td>
+                		<table width="100%" border=0 cellpadding=5 cellspacing=0>
+                			<tr>
+                				<td class="crExceptionElement">
+				                    <table border=0 cellpadding=5 cellspacing=0>
+                						<tr><td><span class="crExceptionText">Object reference not set to an instance of an object.</span></td></tr>
+				                    </table>
+                				</td>
+                			</tr>
+                		</table>
+                	</td>
+                </tr>
+            </table>
+<!--
+Inner Stack Trace:
+
+Stack Trace:
+   at CrystalDecisions.Shared.SharedUtils.SetResponseContent(HttpResponse response, ExportFormatType format, Boolean asAttachment, String attachmentName)
+   at CrystalDecisions.Web.CrystalReportViewer.HandleExport(String format, String isRange, String from, String to, Boolean printOnLoad, Int32 current)
+--!>
+
+
+</div>
+    
+    
+    
+
+<script type="text/javascript">
+<!--
+bobj.crv.stateManager.setComponentState('CrystalReportViewer1__UI',eval('('+document.getElementById('__CRYSTALSTATECrystalReportViewer1').value+')'));
+var callBackFrameUrl='/WebResource.axd?d=D9mrDxY6XmXaHxOiO1ZhMy99quG_plMA3uW37iNzXha-MsDnS0K2jLppjL_mddgMSclSvZQoGJEmkiwneFfaF2MXFqpStO5mVbYnIkoCFSI1&t=637814552020000000';
+WebForm_InitCallback();new bobj.crv.ViewerListener('CrystalReportViewer1__UI',new bobj.crv.AspDotNetAdapter("__doPostBack('CrystalReportViewer1','VIEW-CONTEXT')", "VIEW-CONTEXT", "__CRYSTALSTATECrystalReportViewer1","WebForm_DoCallback('CrystalReportViewer1','arg','cb','ctx','errcb',true)","4.8.4494.0"));// -->
+</script>
+</form>
+</body>
+</html>

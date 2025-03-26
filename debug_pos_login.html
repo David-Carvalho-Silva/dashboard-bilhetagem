@@ -1,0 +1,335 @@
+<html><head><title>
+	.:: VTWeb Admin ::.
+</title>
+
+    <script type="text/javascript" src="Js/wfm_default.js"></script>
+    <script type="text/javascript" src="Js/jQuery.js"></script> 
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <script language="javascript" type="text/javascript">
+
+        function teste() {
+            $.ajax({
+                url: 'http://192.168.88.223:8990/',
+                type: 'GET',
+                crossDomain: true,
+                success: function (data) {
+                    console.log(data)
+                }
+            });
+        }
+        
+
+        function Alert_Submit(strMessage, strPagina) {
+            //desabilita todo o conteudo
+            document.getElementById('div_alert').innerHTML = "<div align=center class=div_alert valign=middle style='position: absolute;left:0px;top:0px;width:100%;height:102%;filter:alpha(opacity=70);-moz-opacity:.70;opacity:.70;'></div><div align=center valign=middle style='position: absolute;left:0px;top:250px;width:100%;height:50%;'>" + "<iframe src='pages/ClientMessage/ClientMessage.aspx?ALERT_MESSAGE=" + strMessage + "&PAGE_NAME=" + strPagina + "' frameborder='no' width='300px' height='120px' style='z-index:5000'></iframe>" + "</div>";
+            document.getElementById('div_alert').style.height = '100%';
+            document.getElementById('div_alert').style.width = '100%';
+        }
+
+        function Alert(strMessage) {
+            //desabilita todo o conteudo
+            document.getElementById('div_alert').innerHTML = "<div align=center class=div_alert valign=middle style='position: absolute;left:0px;top:0px;width:100%;height:102%;filter:alpha(opacity=70);-moz-opacity:.70;opacity:.70;'></div><div align=center valign=middle style='position: absolute;left:0px;top:250px;width:100%;height:50%;'>" + "<iframe src='pages/ClientMessage/ClientAlert.aspx?ALERT_MESSAGE=" + strMessage + "' frameborder='no' width='300px' height='120px' style='z-index:5000'></iframe>" + "</div>";
+            document.getElementById('div_alert').style.height = '100%';
+            document.getElementById('div_alert').style.width = '100%';
+        }
+
+
+        function ShowProgress() {
+            //desabilita todo o conteudo
+            document.getElementById('div_alert').innerHTML = "<div align=center class=div_alert valign=middle style='position: absolute;left:0px;top:0px;width:100%;height:102%;filter:alpha(opacity=70);-moz-opacity:.70;opacity:.70;'></div><div align=center valign=middle style='position: absolute;left:0px;top:250px;width:100%;height:50%;'>" + "<iframe src='pages/Services/Progress.aspx' frameborder='no' width='350px' height='200px' style='z-index:5000'></iframe>" + "</div>";
+            document.getElementById('div_alert').style.height = '100%';
+            document.getElementById('div_alert').style.width = '100%';
+        }
+
+
+        function Close_Message() {
+            //desabilita todo o conteudo
+            document.getElementById('div_alert').innerHTML = "";
+            document.getElementById('div_alert').style.height = '0px';
+            document.getElementById('div_alert').style.width = '0px';
+            document.getElementById('div_alert').style.position = 'absolute';
+            LoadWindowHeight();
+        }
+
+        function ConfirmMessage(strMessage, strFunctionToCall) {
+            //desabilita todo o conteudo
+            document.getElementById('div_alert').innerHTML = "<div align=center class=div_alert valign=middle style='position: absolute;left:0px;top:0px;width:100%;height:102%;filter:alpha(opacity=70);-moz-opacity:.70;opacity:.70;'></div><div align=center valign=middle style='position: absolute;left:0px;top:250px;width:100%;height:50%;'>" + "<iframe src='pages/ClientMessage/ClientConfirm.aspx?ALERT_MESSAGE=" + strMessage + "&FUNCTION_TO_CALL=" + strFunctionToCall + "' frameborder='no' width='300px' height='120px' style='z-index:5000'></iframe>" + "</div>";
+            document.getElementById('div_alert').style.height = '100%';
+            document.getElementById('div_alert').style.width = '100%';
+        }
+
+        function ConfirmMessage_Complete(strMessage, strFunctionToCall, strFunctionToCall2) {
+            //desabilita todo o conteudo
+            document.getElementById('div_alert').innerHTML = "<div align=center class=div_alert valign=middle style='position: absolute;left:0px;top:0px;width:100%;height:102%;filter:alpha(opacity=70);-moz-opacity:.70;opacity:.70;'></div><div align=center valign=middle style='position: absolute;left:0px;top:250px;width:100%;height:50%;'>" + "<iframe src='pages/ClientMessage/ClientConfirm.aspx?ALERT_MESSAGE=" + strMessage + "&FUNCTION_TO_CALL=" + strFunctionToCall + "&FUNCTION_TO_CALL2=" + strFunctionToCall2 + "' frameborder='no' width='300px' height='120px' style='z-index:5000'></iframe>" + "</div>";
+            document.getElementById('div_alert').style.height = '100%';
+            document.getElementById('div_alert').style.width = '100%';
+        }
+
+        function LoadWindowHeight() {
+            try {
+
+                var doc;
+                var iframe;
+
+                iframe = document.getElementById("FRAME");
+
+                if (iframe.contentDocument)
+                    // Firefox, Opera
+                    doc = iframe.contentDocument;
+                else if (iframe.contentWindow)
+                    // Internet Explorer
+                    doc = iframe.contentWindow.document;
+                else if (iframe.document)
+                    // Others?
+                    doc = iframe.document;
+
+                if (doc.body.scrollHeight + 300 > document.getElementById("FRAME").height) {
+                    console.log('mudando a altura para:' + (doc.body.scrollHeight + 300));
+                    document.getElementById("FRAME").height = doc.body.scrollHeight + 300;
+                }
+                else {
+                    console.log('deixando a altura em:' + (document.getElementById("FRAME").height));
+                }
+            }
+            catch (e) { }
+        }
+
+        //Redimensionamento e Redirecionamento da página
+        function RedirectPage(evt) {
+            if (evt.data.indexOf('final_height') >= 0) {
+                var height_to_add = parseInt(evt.data.split(':')[1]);
+                if (height_to_add + 300 > document.getElementById("FRAME").height) {
+                    console.log('mudando a altura para:' + (height_to_add + 300));
+                    document.getElementById("FRAME").height = height_to_add + 300;
+                }
+                else {
+                    console.log('deixando a altura em:' + (document.getElementById("FRAME").height));
+                }
+            }
+            else {
+                window.open(evt.data, "FRAME");
+            }
+        }
+
+        //Comunicação entre o iframe e a página. Contornar problemas de comunicação e segurança entre páginas e iframe de diferentes protocolos e portas
+        window.onload = function () {
+            var iframeWin = window;
+            if (iframeWin.addEventListener) {
+                // For standards-compliant web browsers
+                iframeWin.addEventListener("message", RedirectPage, false);
+            } else {  
+                iframeWin.attachEvent("onmessage", RedirectPage);
+            }
+        }
+    </script>
+
+<link rel="stylesheet" type="text/css" href="https://vtadmin.manaus.prodatamobility.com.br:443//Css/comum.css">
+<link rel="stylesheet" type="text/css" href="https://vtadmin.manaus.prodatamobility.com.br:443//Css/estrutura.css">
+<link rel="stylesheet" type="text/css" href="https://vtadmin.manaus.prodatamobility.com.br:443//Css/wfm_default.css">
+<link rel="SHORTCUT ICON" href="https://vtadmin.manaus.prodatamobility.com.br:443//Images/icon.ico"></head>
+<body>
+    <div id="div_alert" name="div_alert" style="position: absolute;">
+    </div>
+    <table id="main" cellspacing="0" class="nopad">
+        <tbody><tr>
+
+            <td class="border left" rowspan="4"></td>
+            <td class="bg_image">
+                <div style="float: left; background-image: url('Images/sis_topo_left.jpg'); width: 191px; height: 36px;"></div>
+                <div style="float: right; background-image: url('Images/sis_topo_right.jpg'); width: 550px; height: 36px;"></div>
+                <div></div>
+            </td>
+
+            <td class="border right" rowspan="4"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="background-image: url('Images/sis_topo_seta.jpg'); width: 253px; background-repeat: no-repeat; height: 13px;"></td>
+        </tr>
+
+
+        <tr>
+            <td class="content" style="vertical-align: top;">
+
+                <table cellspacing="0" width="100%" style="vertical-align: top;">
+                    <tbody><tr style="vertical-align: top;">
+                        <td style="width: 240px;">
+                            
+
+<link rel="stylesheet" type="text/css" href="Css/menu.css">
+<script language="javascript">
+
+    function OpenWindows() {
+        window.open('./Pages/UCA/wfm_SystemUsers_ChangePassword.aspx?direct=2&FristAccess=true', 'page', 'height=450,width=550,status=no,location=no,resizable=no,menubar=no,toolbar=no,titlebar=no,scroll=auto, scrollbars=yes');
+    }
+
+	function ShowMenu(pMenu)
+	{
+		var menu = document.getElementById("xmlmenu_right");
+		var parent = document.getElementById("parent_" + pMenu);
+	    
+	    for(var a = 0; a < parent.parentNode.childNodes.length; a++)
+	    {
+			if(parent.parentNode.childNodes[a].nodeType == 1)
+			{
+				parent.parentNode.childNodes[a].className = "";
+				
+				if(parent.parentNode.childNodes[a] == parent)
+					parent.className = "selected";
+			}
+	    }
+	    
+	    
+		for(var a = 0; a < menu.childNodes.length; a++)
+		{
+			if(menu.childNodes[a].nodeType == 1)
+			{
+				menu.childNodes[a].style.display = "none";
+				
+				if(menu.childNodes[a].getAttribute("parent") == pMenu)	
+					menu.childNodes[a].style.display = "list-item";
+			}
+		}
+	    
+		menu.className = "xmlmenu right show";
+				     
+		return false;
+	}
+	
+	function ShowSubMenu(pObj)
+	{
+		var ul = pObj.nextSibling;
+		
+		if(ul.nodeType == 3)
+			ul = ul.nextSibling;
+
+		var li = ul.parentNode;
+		var lis = ul.parentNode.parentNode.childNodes;
+
+		var parent = li.getAttribute("parent");
+
+		for(var a = 0; a < lis.length; a++)
+		{
+			if(lis[a].nodeType == 1 && lis[a].getAttribute("parent") == parent)
+			{
+				var li_ul = lis[a].childNodes[0];
+				var found = false;
+				
+				while(!found)
+				{
+					li_ul = li_ul.nextSibling;
+	
+					found = (li_ul.nodeType == 1 && li_ul.tagName == "UL");
+				}
+				
+				li_ul.style.display = "none";
+			}
+		}
+		
+		ul.style.display = "list-item";
+		
+		pObj.blur();
+		
+		return false;
+	}
+	
+</script>
+
+<ul class="xmlmenu left">
+
+	
+	<li id="parent_uca"><a href="#" onclick="return ShowMenu('uca')">UCA</a></li>
+	<li id="parent_relatorios"><a href="#" onclick="return ShowMenu('relatorios')">Relatórios</a></li>
+    <li><a href="Pages/general/wfm_Principal.aspx" target="FRAME">
+        Página Inicial
+    </a></li>
+    
+    <li><a href="Pages/general/wfm_LogOff.aspx">
+        Sair
+    </a></li>
+			
+</ul>
+
+<ul id="xmlmenu_right" class="xmlmenu right">
+	
+	
+	<li parent="uca"><a href="#" onclick="return ShowSubMenu(this)">Usuários</a>
+	<ul>
+		<li><a href="pages/uca/wfm_Users_Lst.aspx" class="submenufin" target="FRAME">Lista</a></li>
+		<li><a href="Pages/security/wfm_ExternalPageRedirect.aspx?_PageRedirect=Aut/CityBus/ImportFinger/ImportFinger.aspx&amp;_PageBack=" class="submenugen" target="FRAME">Importação Finger</a></li>
+		<li><a href="pages/uca/wfm_Zip_ConsultUserPermission.aspx" class="submenufin" target="FRAME">Consulta Limite Escolar</a></li>
+		<li><a href="pages/uca/wfm_Zip_AlterUsers.aspx" class="submenuins" target="FRAME">Troca de CEP Usuários</a></li>
+		<li><a href="Pages/security/wfm_ExternalPageRedirect.aspx?_PageRedirect=Aut/Admin/UserTemporaryInfo/UserTemporaryInfoList.aspx&amp;_PageBack=" class="submenufin" target="FRAME">Consulta Vínculo Cartão</a></li>
+		<li><a href="Pages/security/wfm_ExternalPageRedirect.aspx?_PageRedirect=Aut/Admin/User/ElderlyForm.aspx&amp;_PageBack=" class="submenuins" target="FRAME">Inserir Idoso</a></li>
+		<li><a href="Pages/security/wfm_ExternalPageRedirect.aspx?_PageRedirect=Aut/Admin/User/StudentForm.aspx&amp;_PageBack=" class="submenuins" target="FRAME">Inserir Estudante</a></li>
+		<li><a href="Pages/security/wfm_ExternalPageRedirect.aspx?_PageRedirect=Aut/Admin/User/RegistrationHandicappedList.aspx&amp;_PageBack=" class="submenuins" target="FRAME">Recadastro de Usuários com mobilidade Reduzida</a></li>
+	</ul>
+	</li>
+	<li parent="uca"><a href="#" onclick="return ShowSubMenu(this)">Outros</a>
+	<ul>
+		<li><a href="pages/uca/wfm_Data_Compliance.aspx" class="submenupro" target="FRAME">Aprovação Cadastral</a></li>
+		<li><a href="Pages/security/wfm_ExternalPageRedirect.aspx?_PageRedirect=Aut/CityBus/ImportFinger/ImportFinger.aspx&amp;_PageBack=" class="submenugen" target="FRAME">Importação Finger</a></li>
+		<li><a href="pages/uca/wfm_CEPCadastro_Lst.aspx" class="submenufin" target="FRAME">CEP Cadastro</a></li>
+		<li><a href="pages/uca/wfm_ImportNearZIPs_Ins.aspx" class="submenupro" target="FRAME">Importação de CEPs próximos</a></li>
+		<li><a href="Pages/security/wfm_ExternalPageRedirect.aspx?_PageRedirect=Aut/Admin/ProtocolDocument/ProtocolDocumentList.aspx&amp;_PageBack=" class="submenucon" target="FRAME">Protocolo de Confirmação</a></li>
+		<li><a href="Pages/security/wfm_ExternalPageRedirect.aspx?_PageRedirect=Aut/Admin/User/PendingDocList.aspx&amp;_PageBack=" class="submenuins" target="FRAME">Cadastro de pendências</a></li>
+	</ul>
+	</li>
+	<li parent="uca"><a href="#" onclick="return ShowSubMenu(this)">Controle de Cadastros</a>
+	<ul>
+		<li><a href="pages/security/wfm_UserCad_Lst.aspx" class="submenufin" target="FRAME">Listar</a></li>
+	</ul>
+	</li>
+	<li parent="relatorios"><a href="#" onclick="return ShowSubMenu(this)">Geral</a>
+	<ul>
+		<li><a href="Reports/wfm_ReportFilter.aspx" class="submenuflu" target="FRAME">Relatórios</a></li>
+		<li><a href="Pages/security/wfm_ExternalPageRedirect.aspx?_PageRedirect=Aut/MRC/frmRequestReportList.aspx&amp;_PageBack=Aut/MRC/frmRequestReportList.aspx" class="submenuflu" target="FRAME">Relatórios Solicitados</a></li>
+	</ul>
+	</li>
+	
+</ul>
+
+
+                        </td>
+                        <td align="center">
+
+                            <iframe src="Pages/general/wfm_Principal.aspx" id="FRAME" name="FRAME" onload="window.scrollTo(0,0);" frameborder="no" allowtransparency="true" width="96%" height="300"></iframe>
+
+
+                        </td>
+
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+        <tr style="height: 23px;">
+            <td style="background-image: url('Images/sis_footer.jpg'); background-repeat: repeat-x;">
+                <div style="float: left">
+                    <span class="footer" apbglobalization="Default_Footer_User">Usuário: </span>
+                    <span id="lblLogin" class="footer" style="font-weight: bold;">DAVICARVALHO.SNTR_WE</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="footer" apbglobalization="Default_Footer_Version">Versão: </span>
+                    <span id="lblVersion" class="footer" style="font-weight: bold;">24.06.04</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="footer" apbglobalization="Default_Footer_Script">Script: </span>
+                    <span id="lblscript" class="footer" style="font-weight: bold;">Config APB</span>
+                </div>
+
+                <div style="float: right">
+                    <span id="lblIP" class="footer"><b>Oracle</b>&nbsp;¤&nbsp;<b>Instância:</b> MANAUS_WEB&nbsp;&nbsp;</span>
+                </div>
+            </td>
+        </tr>
+
+
+
+
+    </tbody></table>
+    <layer name="AwfmnbSPm" style="z-index: 1000"></layer>
+    <form name="form1" method="post" action="./wfm_default.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEyMDg1MjExOTMPFgIeE1ZhbGlkYXRlUmVxdWVzdE1vZGUCARYQAgEPDxYCHgl4bWx1c2VyaWQC6wFkFgICAQ8PFgIeB1Zpc2libGVoZGQCAg8WAh4JaW5uZXJodG1sBQ5Vc3UmIzIyNTtyaW86IGQCAw8PFgIeBFRleHQFFERBVklDQVJWQUxITy5TTlRSX1dFZGQCBA8WAh8DBQ1WZXJzJiMyMjc7bzogZAIFDw8WAh8EBQgyNC4wNi4wNGRkAgYPFgIfAwUIU2NyaXB0OiBkAgcPDxYCHwQFCkNvbmZpZyBBUEJkZAIIDw8WAh8EBUQ8Yj5PcmFjbGU8L2I+Jm5ic3A7wqQmbmJzcDs8Yj5JbnN0w6JuY2lhOjwvYj4gTUFOQVVTX1dFQiZuYnNwOyZuYnNwO2RkZJ6aL0Azcjoj2IzNmrL7Uiy46lqbYysW1DroD+ooEFOI">
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="88DD43B3"></form>
+
+
+
+
+</body></html>
